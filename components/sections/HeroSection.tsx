@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown, Sparkles, ExternalLink } from "lucide-react";
 
 const stagger = {
   container: { animate: { transition: { staggerChildren: 0.12, delayChildren: 2.1 } } },
@@ -55,13 +55,12 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Main heading */}
+        {/* Heading */}
         <motion.h1
           variants={stagger.item}
           className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight mb-6"
           style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
         >
-         {" "}
           <span className="gradient-text">Abhishek Jha</span>
           <span className="block mt-1" style={{ color: "var(--text-secondary)", fontSize: "0.7em", fontWeight: 300 }}>
             Full Stack Web Developer
@@ -90,6 +89,22 @@ export default function HeroSection() {
           >
             View Projects
           </a>
+
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium transition-all hover:scale-105 active:scale-95 border"
+            style={{
+              color: "var(--text-primary)",
+              borderColor: "var(--border)",
+              background: "rgba(255,255,255,0.02)",
+            }}
+          >
+            <ExternalLink size={16} />
+            Resume
+          </a>
+
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium glass transition-all hover:scale-105 active:scale-95"
