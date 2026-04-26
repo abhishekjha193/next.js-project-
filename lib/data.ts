@@ -92,7 +92,7 @@ export const experiences: Experience[] = [
   },
   {
     id: "3",
-    company: "Shreyain's Coding School",
+    company: "Shreyains Coding School",
     role: "MERN Stack Trainee (Apprenticeship)",
     duration: "Aug 2025 – Present",
     location: "Remote, India",

@@ -29,14 +29,15 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 2, duration: 0.5 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled ? "glass border-b py-3" : "py-5"
       }`}
       style={{ borderColor: scrolled ? "var(--border)" : "transparent" }}
     >
       <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+
+        {/* LOGO */}
         <a href="#hero" className="flex items-center gap-2.5 group">
           <div
             className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center transition-transform group-hover:scale-105"
@@ -61,7 +62,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop nav */}
+        {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
@@ -75,19 +76,19 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Actions */}
+        {/* ACTIONS */}
         <div className="flex items-center gap-2">
-          {/* Theme toggle */}
+
+          {/* THEME */}
           <button
             onClick={toggle}
             className="p-2 rounded-xl glass transition-all hover:scale-105 active:scale-95"
             style={{ color: "var(--text-secondary)" }}
-            aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
-          {/* CMD+K hint (mobile) */}
+          {/* SEARCH */}
           <button
             onClick={() => {
               const event = new KeyboardEvent("keydown", {
@@ -99,14 +100,13 @@ export default function Navbar() {
             }}
             className="p-2 rounded-xl glass transition-all hover:scale-105 active:scale-95 hidden sm:flex"
             style={{ color: "var(--text-secondary)" }}
-            aria-label="Open search"
           >
             <Search size={16} />
           </button>
 
-          {/* Mobile menu */}
+          {/* MOBILE MENU */}
           <button
-            onClick={() => setMenuOpen((o) => !o)}
+            onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden p-2 rounded-xl glass transition-all"
             style={{ color: "var(--text-secondary)" }}
           >
@@ -115,7 +115,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* MOBILE MENU */}
       {menuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -8 }}

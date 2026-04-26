@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, X, Star } from "lucide-react";
+import { X, Star } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Project } from "@/types";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -45,11 +45,11 @@ export default function ProjectsSection() {
 
   return (
     <SectionWrapper id="projects">
-      {/* TECH STACK HEADER */}
+
+      {/* TECH STACK */}
       <div className="mb-10">
         <p className="section-label mb-3">Tech Stack</p>
 
-        {/* MARQUEE */}
         <div className="overflow-hidden py-3">
           <div className="flex gap-6 w-max animate-[scroll_18s_linear_infinite]">
             {[...techStack, ...techStack].map((t, i) => {
@@ -100,7 +100,8 @@ export default function ProjectsSection() {
               style={{
                 background:
                   activeFilter === tech ? "var(--accent)" : "var(--surface)",
-                color: activeFilter === tech ? "#fff" : "var(--text-secondary)",
+                color:
+                  activeFilter === tech ? "#fff" : "var(--text-secondary)",
                 border: "1px solid var(--border)",
               }}
             >
@@ -123,9 +124,9 @@ export default function ProjectsSection() {
             onClick={() => setSelected(project)}
             className="relative glass rounded-2xl p-6 cursor-pointer overflow-hidden"
           >
-            {/* BG GRADIENT */}
+            {/* GRADIENT BACKGROUND */}
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100`}
+              className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`}
             />
 
             {project.featured && (
@@ -148,7 +149,10 @@ export default function ProjectsSection() {
                 {project.title}
               </h3>
 
-              <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+              <p
+                className="text-sm"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 {project.description}
               </p>
 
@@ -176,7 +180,6 @@ export default function ProjectsSection() {
                     style={{
                       background:
                         "linear-gradient(135deg, rgba(239,68,68,0.9), rgba(185,28,28,0.9))",
-                      backdropFilter: "blur(10px)",
                       boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                     }}
                   >
@@ -218,9 +221,11 @@ export default function ProjectsSection() {
                 <X />
               </button>
 
-              <h3 className="text-2xl font-bold mb-3">{selected.title}</h3>
+              <h3 className="text-2xl font-bold mb-3">
+                {selected.title}
+              </h3>
 
-              <p className="text-sm">
+              <p className="text-sm text-[var(--text-secondary)]">
                 {selected.longDescription || selected.description}
               </p>
             </motion.div>
@@ -230,3 +235,4 @@ export default function ProjectsSection() {
     </SectionWrapper>
   );
 }
+
