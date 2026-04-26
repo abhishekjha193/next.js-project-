@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Moon, Sun, Menu, X, Search } from "lucide-react";
 import { useTheme } from "@/components/ui/ThemeProvider";
+import Image from "next/image";
 
 const navLinks = [
   { label: "GitHub", href: "#github" },
@@ -43,10 +44,12 @@ export default function Navbar() {
               background: "linear-gradient(135deg, var(--accent), #8b5cf6)",
             }}
           >
-            <img
+            <Image
               src="/a.png"
               alt="logo"
-              className="w-full h-full object-cover"
+              width={32}
+              height={32}
+              className="object-cover"
             />
           </div>
 

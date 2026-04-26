@@ -87,8 +87,7 @@ export default function ProjectsSection() {
           className="mt-3 max-w-xl text-sm"
           style={{ color: "var(--text-secondary)" }}
         >
-          A selection of things I've built — from developer tooling to consumer
-          products.
+          A selection of things I&apos;ve built — from developer tooling to consumer products.
         </p>
 
         {/* FILTERS */}
