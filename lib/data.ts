@@ -115,7 +115,7 @@ export const certificates: Certificate[] = [
     image: "/certificate/full.jpg",
   },
   {
-    id: "",
+    id: "2",
     title: "Software Engineering Job Simulation",
     issuer: "Forage",
     date: "2026",
@@ -155,4 +155,3 @@ export const certificates: Certificate[] = [
     image: "/certificate/genai.jpg",
   },
 ];
-

@@ -6,6 +6,7 @@ import { Award, Calendar, X, CheckCircle, ArrowRight } from "lucide-react";
 import { certificates } from "@/lib/data";
 import { Certificate } from "@/types";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import Image from "next/image";
 
 export default function CertificatesSection() {
   const [selected, setSelected] = useState<Certificate | null>(null);
@@ -15,7 +16,6 @@ export default function CertificatesSection() {
 
   return (
     <SectionWrapper id="certificates">
-
       <div className="mb-12">
         <p className="section-label mb-3">Credentials</p>
 
@@ -26,7 +26,6 @@ export default function CertificatesSection() {
 
       {/* GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
         {visibleCertificates.map((cert, i) => (
           <motion.div
             key={cert.id}
@@ -53,8 +52,9 @@ export default function CertificatesSection() {
             "
           >
             <div className="flex items-start gap-4">
-
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${cert.badgeColor}`}>
+              <div
+                className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${cert.badgeColor}`}
+              >
                 <Award size={18} className="text-gray-300" />
               </div>
 
@@ -73,11 +73,13 @@ export default function CertificatesSection() {
                 </div>
               </div>
 
-              <CheckCircle size={14} className="text-green-500 opacity-60 group-hover:opacity-100 transition" />
+              <CheckCircle
+                size={14}
+                className="text-green-500 opacity-60 group-hover:opacity-100 transition"
+              />
             </div>
           </motion.div>
         ))}
-
       </div>
 
       {/* VIEW MORE */}
@@ -140,9 +142,7 @@ export default function CertificatesSection() {
                   overflow-hidden
                 "
               >
-
                 <div className="p-6 border-b border-gray-200 dark:border-white/10 relative">
-
                   <button
                     onClick={() => setSelected(null)}
                     className="absolute top-4 right-4 w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 flex items-center justify-center"
@@ -151,8 +151,9 @@ export default function CertificatesSection() {
                   </button>
 
                   <div className="flex items-center gap-3">
-
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${selected.badgeColor}`}>
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${selected.badgeColor}`}
+                    >
                       <Award size={22} className="text-gray-300" />
                     </div>
 
@@ -172,7 +173,6 @@ export default function CertificatesSection() {
                         </span>
                       </div>
                     </div>
-
                   </div>
 
                   <p className="text-xs text-gray-500 dark:text-white/40 mt-3 flex items-center gap-1">
@@ -183,27 +183,25 @@ export default function CertificatesSection() {
 
                 <div className="p-6">
                   <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-black/30">
-                    <img
-                      src={selected.image}
+                    <Image
+                      src={selected.image || ""}
                       alt={selected.title}
+                      width={800}
+                      height={500}
                       className="w-full object-cover"
-                      loading="lazy"
                     />
                   </div>
 
                   <p className="text-sm text-gray-700 dark:text-white/70 mt-5 leading-relaxed">
-                    Verified certification demonstrating real-world skills and project implementation expertise.
+                    Verified certification demonstrating real-world skills and
+                    project implementation expertise.
                   </p>
-
                 </div>
-
               </motion.div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-
     </SectionWrapper>
   );
 }
-

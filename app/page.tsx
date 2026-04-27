@@ -26,7 +26,7 @@ export default async function Home() {
       <Navbar />
       <main className="relative">
         <HeroSection />
-        <GitHubSection user={user} repos={repos} events={events} />
+        <GitHubSection user={user} />
         <ProjectsSection />
         <ExperienceSection />
         <CertificatesSection />
