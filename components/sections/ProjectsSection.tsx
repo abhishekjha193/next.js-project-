@@ -33,7 +33,7 @@ export default function ProjectsSection() {
     <SectionWrapper id="projects">
 
       <div className="mb-14">
-        <p className="text-red-500 text-xs tracking-[0.35em] uppercase mb-3 font-medium">
+        <p className="text-red-500 text-xs tracking-[0.35em] uppercase mb-3">
           Tech Stack
         </p>
 
@@ -48,16 +48,16 @@ export default function ProjectsSection() {
                     flex items-center gap-2
                     px-5 py-2.5
                     rounded-full
-                    bg-white/5
-                    border border-white/10
-                    text-white/70 text-sm
+                    bg-[var(--surface)]
+                    border border-[var(--border)]
+                    text-[var(--text-secondary)] text-sm
                     backdrop-blur-xl
                     hover:border-red-500/40
-                    hover:text-white
+                    hover:text-[var(--text-primary)]
                     transition
                   "
                 >
-                  <Icon size={16} className="text-red-400" />
+                  <Icon size={16} className="text-red-500" />
                   {t.name}
                 </div>
               );
@@ -71,12 +71,12 @@ export default function ProjectsSection() {
           Work
         </p>
 
-        <h2 className="text-4xl font-semibold tracking-tight text-white">
+        <h2 className="text-4xl font-semibold tracking-tight text-[var(--text-primary)]">
           Featured Projects
         </h2>
 
-        <p className="text-white/60 mt-3 text-sm max-w-xl leading-relaxed">
-          A selection of production-grade applications built with modern full-stack engineering practices.
+        <p className="text-[var(--text-secondary)] mt-3 text-sm max-w-xl leading-relaxed">
+          A collection of production-grade applications built with modern full-stack engineering practices.
         </p>
       </div>
 
@@ -93,8 +93,8 @@ export default function ProjectsSection() {
             className="
               relative group
               rounded-2xl p-6
-              bg-black/40
-              border border-white/10
+              bg-[var(--surface)]
+              border border-[var(--border)]
               backdrop-blur-2xl
               overflow-hidden
               transition-all duration-300
@@ -111,7 +111,7 @@ export default function ProjectsSection() {
                 rounded-full
                 bg-red-500/10
                 border border-red-500/30
-                text-red-400
+                text-red-500
                 flex items-center gap-1
               ">
                 <Star size={10} />
@@ -119,11 +119,11 @@ export default function ProjectsSection() {
               </div>
             )}
 
-            <h3 className="text-white font-semibold text-base tracking-tight">
+            <h3 className="text-[var(--text-primary)] font-semibold text-base">
               {project.title}
             </h3>
 
-            <p className="text-white/60 text-sm mt-2 leading-relaxed">
+            <p className="text-[var(--text-secondary)] text-sm mt-2 leading-relaxed">
               {project.description}
             </p>
 
@@ -135,9 +135,9 @@ export default function ProjectsSection() {
                     text-[11px]
                     px-2.5 py-1
                     rounded-full
-                    bg-white/5
-                    border border-white/10
-                    text-white/50
+                    bg-[var(--surface)]
+                    border border-[var(--border)]
+                    text-[var(--text-tertiary)]
                   "
                 >
                   {t}
@@ -177,11 +177,11 @@ export default function ProjectsSection() {
                     px-4 py-2
                     rounded-xl
                     text-xs
-                    bg-white/5
-                    border border-white/10
-                    text-white/70
-                    hover:bg-white/10
-                    hover:text-white
+                    bg-[var(--surface)]
+                    border border-[var(--border)]
+                    text-[var(--text-secondary)]
+                    hover:text-[var(--text-primary)]
+                    hover:border-red-500/30
                     transition
                   "
                 >
@@ -206,13 +206,13 @@ export default function ProjectsSection() {
             flex items-center gap-2
             px-7 py-3
             rounded-xl
-            bg-white/5
-            border border-white/10
-            text-white/70 text-sm
+            bg-[var(--surface)]
+            border border-[var(--border)]
+            text-[var(--text-secondary)] text-sm
             backdrop-blur-xl
             hover:bg-red-500/10
             hover:border-red-500/30
-            hover:text-white
+            hover:text-[var(--text-primary)]
             hover:scale-105 active:scale-95
             transition
           "

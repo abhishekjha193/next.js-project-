@@ -55,83 +55,77 @@ Message: ${form.message}`;
 
   return (
     <SectionWrapper id="contact">
+
       <div className="mb-12">
         <p className="section-label mb-3">Reach Out</p>
 
-        <h2
-          className="text-4xl font-bold"
-          style={{ color: "var(--text-primary)" }}
-        >
+        <h2 className="text-4xl font-bold text-black dark:text-white">
           Contact
         </h2>
 
-        <p
-          className="mt-3 max-w-md text-sm"
-          style={{ color: "var(--text-secondary)" }}
-        >
-         Send a message , Let’s build something together
+        <p className="mt-3 max-w-md text-sm text-gray-600 dark:text-white/60">
+          Send a message, let’s build something together
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
         {/* FORM */}
         <motion.form
           onSubmit={handleSubmit}
           className="
-    lg:col-span-3
-    w-full max-w-2xl mx-auto
-    rounded-3xl
-    p-8 sm:p-10
-    flex flex-col gap-5
-    bg-white/5
-    border border-white/10
-    backdrop-blur-2xl
-    shadow-[0_30px_120px_rgba(0,0,0,0.6)]
-  "
+            lg:col-span-3
+            w-full max-w-2xl mx-auto
+            rounded-3xl
+            p-8 sm:p-10
+            flex flex-col gap-5
+            bg-white dark:bg-white/5
+            border border-gray-200 dark:border-white/10
+            backdrop-blur-2xl
+            shadow-xl
+          "
         >
-          {/* NAME */}
+
           <input
             placeholder="Your Name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             className="
-      px-5 py-4
-      rounded-xl
-      text-sm
-      bg-white/5
-      border border-white/10
-      text-white
-      outline-none
-      transition
-      focus:border-red-400/60
-      focus:ring-2 focus:ring-red-500/20
-      placeholder:text-white/30
-    "
+              px-5 py-4
+              rounded-xl
+              text-sm
+              bg-gray-100 dark:bg-white/5
+              border border-gray-200 dark:border-white/10
+              text-black dark:text-white
+              outline-none
+              transition
+              focus:border-red-400
+              focus:ring-2 focus:ring-red-500/20
+              placeholder:text-gray-400 dark:placeholder:text-white/30
+            "
             required
           />
 
-          {/* EMAIL */}
           <input
             placeholder="Your Email"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             className="
-      px-5 py-4
-      rounded-xl
-      text-sm
-      bg-white/5
-      border border-white/10
-      text-white
-      outline-none
-      transition
-      focus:border-red-400/60
-      focus:ring-2 focus:ring-red-500/20
-      placeholder:text-white/30
-    "
+              px-5 py-4
+              rounded-xl
+              text-sm
+              bg-gray-100 dark:bg-white/5
+              border border-gray-200 dark:border-white/10
+              text-black dark:text-white
+              outline-none
+              transition
+              focus:border-red-400
+              focus:ring-2 focus:ring-red-500/20
+              placeholder:text-gray-400 dark:placeholder:text-white/30
+            "
             required
           />
 
-          {/* MESSAGE */}
           <textarea
             placeholder="Your Message..."
             rows={6}
@@ -140,43 +134,41 @@ Message: ${form.message}`;
               setForm((f) => ({ ...f, message: e.target.value }))
             }
             className="
-      px-5 py-4
-      rounded-xl
-      text-sm
-      bg-white/5
-      border border-white/10
-      text-white
-      outline-none
-      resize-none
-      transition
-      focus:border-red-400/60
-      focus:ring-2 focus:ring-red-500/20
-      placeholder:text-white/30
-    "
+              px-5 py-4
+              rounded-xl
+              text-sm
+              bg-gray-100 dark:bg-white/5
+              border border-gray-200 dark:border-white/10
+              text-black dark:text-white
+              outline-none
+              resize-none
+              transition
+              focus:border-red-400
+              focus:ring-2 focus:ring-red-500/20
+              placeholder:text-gray-400 dark:placeholder:text-white/30
+            "
             required
           />
 
-          {/* BUTTON */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
             className="
-      mt-2
-      flex items-center justify-center gap-2
-      px-6 py-4
-      rounded-xl
-      text-sm font-medium
-      text-white
-      bg-white/10
-      border border-white/10
-      backdrop-blur-xl
-      transition
-      hover:bg-red-500/10
-      hover:border-red-500/30
-      hover:text-red-300
-      shadow-[0_10px_40px_rgba(0,0,0,0.3)]
-    "
+              mt-2
+              flex items-center justify-center gap-2
+              px-6 py-4
+              rounded-xl
+              text-sm font-medium
+              text-black dark:text-white
+              bg-gray-100 dark:bg-white/10
+              border border-gray-200 dark:border-white/10
+              backdrop-blur-xl
+              transition
+              hover:bg-red-500/10
+              hover:border-red-500/30
+              hover:text-red-500
+            "
           >
             <Send size={16} />
             Send Message
@@ -185,27 +177,39 @@ Message: ${form.message}`;
 
         {/* SOCIALS */}
         <div className="lg:col-span-2 flex flex-col gap-3">
+
           {socials.map((s) => (
             <a
               key={s.label}
               href={s.href}
               target="_blank"
-              className="glass card-glow rounded-2xl p-4 flex items-center gap-4"
+              className="
+                rounded-2xl p-4
+                flex items-center gap-4
+                bg-white dark:bg-white/5
+                border border-gray-200 dark:border-white/10
+                hover:border-red-400/30
+                transition
+              "
             >
-              <s.icon size={18} color="var(--accent)" />
+              <s.icon size={18} className="text-red-500" />
+
               <div>
-                <div style={{ color: "var(--text-primary)" }}>{s.label}</div>
-                <div
-                  className="text-xs"
-                  style={{ color: "var(--text-tertiary)" }}
-                >
+                <div className="text-black dark:text-white">
+                  {s.label}
+                </div>
+
+                <div className="text-xs text-gray-500 dark:text-white/50">
                   {s.handle}
                 </div>
               </div>
             </a>
           ))}
+
         </div>
+
       </div>
+
     </SectionWrapper>
   );
 }
