@@ -13,7 +13,8 @@ export default function Footer() {
           <span>Built </span>
           <span>by</span>
           <span style={{ color: "var(--text-secondary)" }} className="font-medium">Abhishek Jha</span>
-          <span>, Next.js + Framer Motion</span>
+          <br />
+          <span>Next.js + Framer Motion</span>
         </div>
 
         <div className="flex items-center gap-4">

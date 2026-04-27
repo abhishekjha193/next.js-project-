@@ -1,140 +1,137 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, GitFork, GitCommit, Clock, ExternalLink, Activity } from "lucide-react";
-import { GitHubUser, GitHubRepo, GitHubEvent } from "@/types";
-import { formatTimeAgo } from "@/lib/github";
-import { GITHUB_USERNAME } from "@/lib/data";
+import { ExternalLink, Activity, Code, Zap, Layers } from "lucide-react";
+import { GitHubUser } from "@/types";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 
 interface Props {
   user: GitHubUser | null;
-  repos: GitHubRepo[];
-  events: GitHubEvent[];
 }
 
-const languageColors: Record<string, string> = {
-  TypeScript: "#3178c6",
-  JavaScript: "#f1e05a",
-  Python: "#3572A5",
-  Rust: "#dea584",
-  Go: "#00ADD8",
-  HTML: "#e34c26",
-  CSS: "#563d7c",
-  Vue: "#41b883",
-  "C++": "#f34b7d",
-  Swift: "#ffac45",
-};
-
-export default function GitHubSection({ user, repos, events }: Props) {
-  const recentCommits = events
-    .filter((e) => e.type === "PushEvent" && e.payload.commits?.length)
-    .slice(0, 5);
-
+export default function GitHubSection({ user }: Props) {
   return (
     <SectionWrapper id="github">
-      <div className="mb-12">
-        <p className="section-label mb-3">Live Activity</p>
-        <h2 className="text-4xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
+      {/* Header */}
+      <div className="mb-10">
+        <p className="section-label mb-2">Developer Profile</p>
+
+        <h2 className="text-4xl font-bold text-white">
           GitHub
         </h2>
+
         {user && (
-          <p className="mt-3 text-sm" style={{ color: "var(--text-tertiary)" }}>
-            @{user.login} · {user.public_repos} repos · {user.followers} followers
+          <p className="mt-2 text-sm text-neutral-400">
+            @{user.login}
           </p>
         )}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        {/* Stats */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        {/* Main Stats Card */}
         {user && (
-          <motion.a
-            href={user.html_url}
-            target="_blank"
-            rel="noopener"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -2 }}
-            className="glass card-glow rounded-2xl p-6 flex flex-col gap-4 transition-all cursor-pointer"
+            className="glass rounded-2xl p-6 border border-white/5 flex flex-col gap-6"
           >
+            {/* Top */}
             <div className="flex items-center justify-between">
-              <Activity size={16} style={{ color: "var(--accent)" }} />
-              <ExternalLink size={12} style={{ color: "var(--text-tertiary)" }} />
+              <div className="flex items-center gap-2 text-neutral-400 text-sm">
+                <Activity size={16} className="text-red-400" />
+                GitHub Overview
+              </div>
+
+              <a
+                href={user.html_url}
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-1 text-xs text-neutral-400 hover:text-white transition"
+              >
+                Profile <ExternalLink size={12} />
+              </a>
             </div>
+
+            {/* Repo Count */}
             <div>
-              <div className="text-3xl font-bold" style={{ color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
+              <div className="text-3xl font-bold text-white">
                 {user.public_repos}
               </div>
-              <div className="text-xs mt-1" style={{ color: "var(--text-tertiary)" }}>Public Repositories</div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="glass rounded-xl p-3">
-                <div className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>{user.followers}</div>
-                <div className="text-xs" style={{ color: "var(--text-tertiary)" }}>Followers</div>
-              </div>
-              <div className="glass rounded-xl p-3">
-                <div className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>{user.following}</div>
-                <div className="text-xs" style={{ color: "var(--text-tertiary)" }}>Following</div>
+              <div className="text-xs text-neutral-400 mt-1">
+                Public Repositories
               </div>
             </div>
-          </motion.a>
+
+            {/* Tech Focus */}
+            <div className="grid grid-cols-3 gap-3">
+              <div className="bg-white/5 rounded-xl p-3 text-center">
+                <Code size={14} className="mx-auto text-red-400" />
+                <p className="text-xs text-neutral-400 mt-2">Clean Code</p>
+              </div>
+
+              <div className="bg-white/5 rounded-xl p-3 text-center">
+                <Zap size={14} className="mx-auto text-red-400" />
+                <p className="text-xs text-neutral-400 mt-2">Fast Builds</p>
+              </div>
+
+              <div className="bg-white/5 rounded-xl p-3 text-center">
+                <Layers size={14} className="mx-auto text-red-400" />
+                <p className="text-xs text-neutral-400 mt-2">Scalable</p>
+              </div>
+            </div>
+          </motion.div>
         )}
 
+        {/* Engineering Highlights (NEW CORE SECTION) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="col-span-1 lg:col-span-2 rounded-2xl p-6 border border-white/5 bg-gradient-to-br from-white/5 to-transparent"
+        >
+          <div className="flex justify-between items-center mb-5">
+            <h3 className="text-sm font-semibold text-white">
+              Engineering Highlights
+            </h3>
+            <span className="text-xs text-neutral-400">
+              Curated impact
+            </span>
+          </div>
 
-        {/* Repo cards */}
-        {repos.length > 1 ? (
-           repos.slice(0, 2).map((repo, i) => (
-            <motion.a
-              key={repo.id}
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -3, scale: 1.01 }}
-              className="glass card-glow rounded-2xl p-5 flex flex-col gap-3 transition-all cursor-pointer group"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="text-sm font-semibold truncate" style={{ color: "var(--text-primary)" }}>
-                  {repo.name}
-                </h3>
-                <ExternalLink size={12} className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: "var(--text-tertiary)" }} />
-              </div>
-              <p className="text-xs leading-relaxed line-clamp-2" style={{ color: "var(--text-tertiary)" }}>
-                {repo.description || "No description available"}
+          <div className="flex flex-col gap-4">
+
+            <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+              <h4 className="text-sm font-semibold text-white">
+                Full-Stack Development
+              </h4>
+              <p className="text-xs text-neutral-400 mt-1">
+                Built scalable web applications with authentication, APIs, and modern UI systems.
               </p>
-              <div className="flex items-center gap-3 mt-auto pt-1">
-                {repo.language && (
-                  <div className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-tertiary)" }}>
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: languageColors[repo.language] || "#6b7280" }} />
-                    {repo.language}
-                  </div>
-                )}
-                <div className="flex items-center gap-1 text-xs" style={{ color: "var(--text-tertiary)" }}>
-                  <Star size={11} />
-                  {repo.stargazers_count}
-                </div>
-                <div className="flex items-center gap-1 text-xs" style={{ color: "var(--text-tertiary)" }}>
-                  <GitFork size={11} />
-                  {repo.forks_count}
-                </div>
-              </div>
-            </motion.a>
-          ))
-        ) : (
-          // Skeleton placeholders
-          Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="glass rounded-2xl p-5 flex flex-col gap-3">
-              <div className="skeleton h-4 w-3/4 rounded" />
-              <div className="skeleton h-3 w-full rounded" />
-              <div className="skeleton h-3 w-2/3 rounded" />
             </div>
-          ))
-        )}
+
+            <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+              <h4 className="text-sm font-semibold text-white">
+                API Design & Backend Systems
+              </h4>
+              <p className="text-xs text-neutral-400 mt-1">
+                Designed RESTful APIs with focus on performance, security, and maintainability.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20">
+              <h4 className="text-sm font-semibold text-white">
+                Software Engineering Focus
+              </h4>
+              <p className="text-xs text-neutral-400 mt-1">
+                Strong emphasis on clean architecture, reusable components, and scalable systems.
+              </p>
+            </div>
+
+          </div>
+        </motion.div>
+
       </div>
     </SectionWrapper>
   );
 }
+

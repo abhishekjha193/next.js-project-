@@ -1,6 +1,6 @@
 import { Project, Experience, Certificate } from "@/types";
 
-export const GITHUB_USERNAME = "abhishekjha193"; // ← Replace with your GitHub username
+export const GITHUB_USERNAME = "abhishekjha193"; 
 
 export const projects: Project[] = [
   {
@@ -112,31 +112,31 @@ export const certificates: Certificate[] = [
     issuer: "Apna College",
     date: "2024",
     badgeColor: "from-blue-500 to-cyan-500",
-    credentialUrl: "#",
+    image: "/certificate/full.jpg",
   },
   {
-    id: "2",
-    title: "UI/UX Design (Figma)",
-    issuer: "Physics Wallah",
-    date: "2024",
-    badgeColor: "from-pink-500 to-purple-500",
-    credentialUrl: "#",
+    id: "",
+    title: "Software Engineering Job Simulation",
+    issuer: "Forage",
+    date: "2026",
+    badgeColor: "from-yellow-500 to-orange-500",
+    image: "/certificate/SE.jpg",
   },
   {
     id: "3",
     title: "SQL Bootcamp",
     issuer: "LetsUpgrade",
-    date: "2023",
+    date: "2026",
     badgeColor: "from-green-500 to-emerald-500",
-    credentialUrl: "#",
+    image: "/certificate/sqll.jpg",
   },
   {
     id: "4",
-    title: "Software Engineering Job Simulation",
-    issuer: "Forage",
-    date: "2023",
-    badgeColor: "from-yellow-500 to-orange-500",
-    credentialUrl: "#",
+    title: "UI/UX Design (Figma)",
+    issuer: "Physics Wallah",
+    date: "2025",
+    badgeColor: "from-pink-500 to-purple-500",
+    image: "/certificate/ui.jpg",
   },
   {
     id: "5",
@@ -144,14 +144,15 @@ export const certificates: Certificate[] = [
     issuer: "Vodafone Idea Foundation",
     date: "2023",
     badgeColor: "from-indigo-500 to-blue-500",
-    credentialUrl: "#",
+    image: "/certificate/ml.jpg",
   },
   {
     id: "6",
     title: "Generative AI",
     issuer: "Physics Wallah",
-    date: "2024",
+    date: "2026",
     badgeColor: "from-purple-500 to-fuchsia-500",
-    credentialUrl: "#",
+    image: "/certificate/genai.jpg",
   },
 ];
+

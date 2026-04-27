@@ -69,7 +69,7 @@ Message: ${form.message}`;
           className="mt-3 max-w-md text-sm"
           style={{ color: "var(--text-secondary)" }}
         >
-          Message directly goes to my WhatsApp 🚀
+         Send a message , Let’s build something together
         </p>
       </div>
 
@@ -77,60 +77,106 @@ Message: ${form.message}`;
         {/* FORM */}
         <motion.form
           onSubmit={handleSubmit}
-          className="lg:col-span-3 glass rounded-2xl p-10 flex flex-col gap-6 max-w-2xl w-full mx-auto"
+          className="
+    lg:col-span-3
+    w-full max-w-2xl mx-auto
+    rounded-3xl
+    p-8 sm:p-10
+    flex flex-col gap-5
+    bg-white/5
+    border border-white/10
+    backdrop-blur-2xl
+    shadow-[0_30px_120px_rgba(0,0,0,0.6)]
+  "
         >
+          {/* NAME */}
           <input
-            placeholder="Name"
+            placeholder="Your Name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-            className="px-5 py-4 rounded-xl text-sm glass border outline-none focus:border-[var(--accent)]"
-            style={{
-              background: "var(--surface)",
-              color: "var(--text-primary)",
-              borderColor: "var(--border)",
-            }}
+            className="
+      px-5 py-4
+      rounded-xl
+      text-sm
+      bg-white/5
+      border border-white/10
+      text-white
+      outline-none
+      transition
+      focus:border-red-400/60
+      focus:ring-2 focus:ring-red-500/20
+      placeholder:text-white/30
+    "
             required
           />
 
+          {/* EMAIL */}
           <input
-            placeholder="Email"
+            placeholder="Your Email"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-            className="px-5 py-4 rounded-xl text-sm glass border outline-none focus:border-[var(--accent)]"
-            style={{
-              background: "var(--surface)",
-              color: "var(--text-primary)",
-              borderColor: "var(--border)",
-            }}
+            className="
+      px-5 py-4
+      rounded-xl
+      text-sm
+      bg-white/5
+      border border-white/10
+      text-white
+      outline-none
+      transition
+      focus:border-red-400/60
+      focus:ring-2 focus:ring-red-500/20
+      placeholder:text-white/30
+    "
             required
           />
 
+          {/* MESSAGE */}
           <textarea
-            placeholder="Message"
+            placeholder="Your Message..."
             rows={6}
             value={form.message}
             onChange={(e) =>
               setForm((f) => ({ ...f, message: e.target.value }))
             }
-            className="px-5 py-4 rounded-xl text-sm glass border outline-none focus:border-[var(--accent)] resize-none"
-            style={{
-              background: "var(--surface)",
-              color: "var(--text-primary)",
-              borderColor: "var(--border)",
-            }}
+            className="
+      px-5 py-4
+      rounded-xl
+      text-sm
+      bg-white/5
+      border border-white/10
+      text-white
+      outline-none
+      resize-none
+      transition
+      focus:border-red-400/60
+      focus:ring-2 focus:ring-red-500/20
+      placeholder:text-white/30
+    "
             required
           />
 
-          {/* 🔴 RED BUTTON */}
+          {/* BUTTON */}
           <motion.button
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-white font-semibold"
-            style={{
-              background: "linear-gradient(135deg, #ef4444, #b91c1c)",
-              boxShadow: "0 0 25px rgba(239, 68, 68, 0.25)",
-            }}
+            className="
+      mt-2
+      flex items-center justify-center gap-2
+      px-6 py-4
+      rounded-xl
+      text-sm font-medium
+      text-white
+      bg-white/10
+      border border-white/10
+      backdrop-blur-xl
+      transition
+      hover:bg-red-500/10
+      hover:border-red-500/30
+      hover:text-red-300
+      shadow-[0_10px_40px_rgba(0,0,0,0.3)]
+    "
           >
             <Send size={16} />
             Send Message
