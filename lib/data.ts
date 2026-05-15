@@ -5,33 +5,15 @@ export const GITHUB_USERNAME = "abhishekjha193";
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Creator Platform (SaaS Lite)",
-    description:
-      "Full-stack creator platform with authentication, analytics, and real-time engagement features.",
-    longDescription:
-      "Built a scalable creator platform with JWT authentication and role-based access (user/admin). Developed REST APIs for posts, likes, comments, and follow system. Implemented infinite scroll feed improving load speed by ~30%. Designed analytics dashboard using MongoDB aggregation and added cron-based scheduled posting with real-time notifications.",
-    tech: [
-      "MongoDB",
-      "Express.js",
-      "React.js",
-      "Node.js",
-      "Redux",
-      "JavaScript",
-      "JWT",
-      "REST APIs",
-    ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/creator-platform",
-    featured: true,
-    gradient: "from-red-600/20 to-red-500/20",
-  },
-  {
-    id: "2",
+
     title: "Emotion Aware Music Player",
+
     description:
-      "Mood-based music player with real-time emotion detection using facial recognition.",
+      "AI-powered mood-based music player with real-time emotion detection and personalized music recommendations.",
+
     longDescription:
-      "Developed a full-stack application that detects user emotions via webcam using MediaPipe face landmarks. Processed facial expressions to classify mood and deliver personalized music recommendations. Built custom audio player and optimized authentication using Redis caching (~40% faster validation).",
+      "Developed a full-stack AI music application that detects user emotions via webcam using MediaPipe face landmarks. Built real-time mood classification system and personalized recommendation engine with custom music player interface. Optimized authentication and API performance for smoother user experience.",
+
     tech: [
       "MongoDB",
       "Express.js",
@@ -40,23 +22,77 @@ export const projects: Project[] = [
       "MediaPipe",
       "Redis",
       "JavaScript",
+      "AI",
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/emotion-music-player",
+
+    liveUrl: "https://moodify-ai-music-player.vercel.app/",
+
+    githubUrl:
+      "https://github.com/abhishekjha193/Moodify-ai-music-player",
+
     featured: true,
+
     gradient: "from-red-600/20 to-red-500/20",
   },
+
+  {
+    id: "2",
+
+    title: "AI Model Arena",
+
+    description:
+      "LLM comparison platform to evaluate and compare responses from multiple AI models in real time.",
+
+    longDescription:
+      "Built a platform integrating multiple AI model APIs to generate responses simultaneously and compare outputs side-by-side. Designed a clean evaluation interface allowing users to identify the most accurate and contextually relevant AI-generated responses efficiently.",
+
+    tech: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "JavaScript",
+      "LLM APIs",
+      "AI Integration",
+    ],
+
+    liveUrl: "Coming Soon",
+
+    githubUrl:
+      "https://github.com/abhishekjha193/AI_Model_Arena",
+
+    featured: true,
+
+    gradient: "from-red-600/20 to-red-500/20",
+  },
+
   {
     id: "3",
-    title: "AI Model Arena",
+
+    title: "Snitch MERN Stack Clothing Platform",
+
     description:
-      "Platform to compare outputs from multiple LLMs and determine optimal responses.",
+      "Production-ready full-stack clothing e-commerce platform inspired by modern fashion brands with premium UI and scalable architecture.",
+
     longDescription:
-      "Built a system that integrates multiple LLM APIs to generate responses in parallel. Designed an intuitive UI for side-by-side comparison and evaluation, helping users identify the most accurate and useful answer.",
-    tech: ["Node.js", "Express.js", "React.js", "JavaScript", "LLM APIs"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/ai-model-arena",
+      "Built a modern MERN stack fashion platform featuring secure authentication, responsive shopping experience, product catalog management, cart functionality, and optimized frontend performance. Designed a premium UI inspired by contemporary clothing brands with scalable backend architecture and reusable component system.",
+
+    tech: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "Redux",
+      "Tailwind CSS",
+      "JWT",
+      "REST APIs",
+    ],
+
+    liveUrl: "https://github.com/abhishekjha193/Snitch",
+
+    githubUrl: "https://github.com/abhishekjha193/Snitch",
+
     featured: false,
+
     gradient: "from-red-600/20 to-red-500/20",
   },
 ];

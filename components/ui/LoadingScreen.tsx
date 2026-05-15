@@ -40,7 +40,7 @@ export default function LoadingScreen() {
               </div>
               {/* Orbit ring */}
               <motion.div
-                className="absolute -inset-2 rounded-3xl border border-red-500/30"
+                className="absolute -inset-2 rounded-3xl border border-red-700"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               />
